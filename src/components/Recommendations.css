@@ -1,0 +1,23 @@
+/* Recommendations Styles */
+.recommendations {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+  .recommendations h2 {
+    margin-bottom: 20px;
+  }
+  
+  .recommendations ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .recommendations li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
