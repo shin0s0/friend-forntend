@@ -17,7 +17,7 @@ const AuthForm = ({ onAuthSuccess, isLogin }) => {
 
     try {
       const endpoint = isLogin ? 'login' : 'register';
-      const url = `https://fbackend-e7iw.onrender.com/api/auth/${endpoint}`;
+      const url = `https://fbackend-1.onrender.com/api/auth/${endpoint}`;
       
       if (isLogin) {
         const response = await axios.post(url, { username, password });

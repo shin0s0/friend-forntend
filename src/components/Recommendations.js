@@ -10,7 +10,7 @@ const Recommendations = () => {
   useEffect(() => {
     const fetchRecommendations = async () => {
       try {
-        const response = await axios.get('https://fbackend-e7iw.onrender.com/api/friends/recommendations', {
+        const response = await axios.get('https://fbackend-1.onrender.com/api/friends/recommendations', {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
         });
         setRecommendations(response.data);

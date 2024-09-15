@@ -9,7 +9,7 @@ const Register = ({ onAuthSuccess }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('YOUR_BACKEND_URL/api/auth/register', {
+      const response = await axios.post('https://fbackend-1.onrender.com/api/auth/register', {
         username,
         password,
       });

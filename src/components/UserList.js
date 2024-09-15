@@ -12,7 +12,7 @@ const UserList = ({ onAddFriend }) => {
     setLoading(true);
     setError(null);
     try {
-      const response = await axios.get('https://fbackend-e7iw.onrender.com/api/friends/search', {
+      const response = await axios.get('https://fbackend-1.onrender.com/api/friends/search', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
         params: { username: query }
       });

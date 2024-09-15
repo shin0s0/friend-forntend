@@ -10,7 +10,7 @@ const FriendsList = () => {
   useEffect(() => {
     const fetchFriends = async () => {
       try {
-        const response = await axios.get('https://fbackend-e7iw.onrender.com/api/friends/friends', {
+        const response = await axios.get('https://fbackend-1.onrender.com/api/friends/friends', {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
         });
         setFriends(response.data);

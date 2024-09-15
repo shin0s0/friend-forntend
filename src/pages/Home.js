@@ -7,7 +7,7 @@ const Home = () => {
   useEffect(() => {
     const fetchFriends = async () => {
       const token = localStorage.getItem('token');
-      const response = await axios.get('YOUR_BACKEND_URL/api/friends', {
+      const response = await axios.get('https://fbackend-1.onrender.com/api/friends', {
         headers: {
           Authorization: `Bearer ${token}`
         }
