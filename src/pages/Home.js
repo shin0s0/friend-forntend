@@ -1,33 +1,39 @@
-import React, { useState } from 'react';
-import UserList from '../components/UserList';
-import FriendsList from '../components/FriendsList';
-import Recommendations from '../components/Recommendations';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-
 const Home = () => {
-  const [showRecommendations, setShowRecommendations] = useState(true);
+  const [friends, setFriends] = useState([]);
 
-  const handleAddFriend = async (userId) => {
-    try {
-      await axios.post('http://localhost:5000/api/friends/request', { receiverId: userId }, {
-        headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+  useEffect(() => {
+    const fetchFriends = async () => {
+      const token = localStorage.getItem('token');
+      const response = await axios.get('YOUR_BACKEND_URL/api/friends', {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
       });
-      alert('Friend request sent');
-    } catch (error) {
-      console.error('Error sending friend request:', error);
-    }
-  };
+      setFriends(response.data);
+    };
+    fetchFriends();
+  }, []);
 
   return (
-    <div>
-      <h1>Home Page</h1>
-      <FriendsList />
-      <UserList onAddFriend={handleAddFriend} />
-      {showRecommendations && <Recommendations />}
-      <button onClick={() => setShowRecommendations(!showRecommendations)}>
-        {showRecommendations ? 'Hide Recommendations' : 'Show Recommendations'}
-      </button>
+    <div className="container">
+      <h2 className="header">Welcome to the Friend App</h2>
+      {friends.length > 0 ? (
+        <div>
+          <h3>Your Friends</h3>
+          <ul>
+            {friends.map(friend => (
+              <li key={friend._id} className="card">
+                {friend.username}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : (
+        <p>You have no friends yet. Search for users and add them!</p>
+      )}
     </div>
   );
 };
